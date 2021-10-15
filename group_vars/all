@@ -1,0 +1,19 @@
+#Red aislada 1
+ra1_address: 192.168.100.1
+ra1_netmask: 255.255.255.0
+ra1_red: 192.168.100.0
+ra1_gateway: 192.168.100.1
+ra1_rango: 192.168.100.2 192.168.100.254
+ra1_consesion: 43200
+
+#Red aislada 2
+ra2_address: 192.168.200.1
+ra2_netmask: 255.255.255.0
+ra2_red: 192.168.200.0
+ra2_gateway: 192.168.200.1
+ra2_rango: 192.168.200.2 192.168.200.254
+ra2_consesion: 3600
+
+#Servidores DNS
+dns1: 1.1.1.1
+dns2: 1.0.0.1
