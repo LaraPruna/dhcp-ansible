@@ -15,11 +15,11 @@ allow-hotplug ens8
 iface ens8 inet static
     address {{ra1_address}}
     netmask {{ra1_netmask}}
-    post-up iptables -t nat -A POSTROUTING -s {{ra1_red}} -o ens3 -j MASQUERADE
+    post-up iptables -t nat -A POSTROUTING -s {{ra1_red}}/24 -o ens3 -j MASQUERADE
 
 # Segunda red muy aislada
 allow-hotplug ens9
 iface ens9 inet static
     address {{ra2_address}}
     netmask {{ra2_netmask}}
-    post-up iptables -t nat -A POSTROUTING -s {{ra2_red}} -o ens3 -j MASQUERADE
+    post-up iptables -t nat -A POSTROUTING -s {{ra2_red}}/24 -o ens3 -j MASQUERADE

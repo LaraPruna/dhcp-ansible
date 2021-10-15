@@ -11,21 +11,23 @@
       - iptables
       - isc-dhcp-server
 
-- name: "Modificar fichero isc-dhcp-server"
-  template:
-    src: isc-dhcp-server
-    dest: /etc/default/isc-dhcp-server
-    mode: 0644
-
-- name: "Modificar fichero dhcpd.conf"
-  template:
-    src: dhcpd.conf
-    dest: /etc/dhcp/dhcpd.conf
-    mode: 0644
-  
 - name: "Cambiar la red del router"
   template:
     src: interfaces
     dest: /etc/network/interfaces
     mode: 0644
   notify: reiniciar maquina
+
+- name: "Modificar fichero isc-dhcp-server"
+  template:
+    src: isc-dhcp-server
+    dest: /etc/default/isc-dhcp-server
+    mode: 0644
+  notify: reiniciar servicio DHCP
+
+- name: "Modificar fichero dhcpd.conf"
+  template:
+    src: dhcpd.conf
+    dest: /etc/dhcp/dhcpd.conf
+    mode: 0644
+  notify: reiniciar servicio DHCP
